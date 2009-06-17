@@ -3,7 +3,7 @@
 
 
 // Require PEAR Net::URL2
-require once( 'Net/URL2.php' );
+require_once( 'Net/URL2.php' );
 
 class SevenLeggedSpider {
 
