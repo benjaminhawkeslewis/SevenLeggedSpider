@@ -12,7 +12,7 @@ class SevenLeggedSpider {
         $dom->strictErrorChecking = false;
         $dom->recover             = true;
         // TODO: Any way around error suppression?
-        @$dom->loadXML( $html );
+        @$dom->loadXML( $xml );
         return $dom;
     }
 
