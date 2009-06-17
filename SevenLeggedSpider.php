@@ -7,6 +7,15 @@ require once( 'Net/URL2.php' );
 
 class SevenLeggedSpider {
 
+    public static function slurpXml( $xml ) {
+        $dom = new DomDocument();
+        $dom->strictErrorChecking = false;
+        $dom->recover             = true;
+        // TODO: Any way around error suppression?
+        @$dom->loadXML( $html );
+        return $dom;
+    }
+
     public static function slurpHtml( $html ) {
         $dom = new DomDocument();
         $dom->strictErrorChecking = false;
@@ -14,6 +23,10 @@ class SevenLeggedSpider {
         // TODO: Any way around error suppression?
         @$dom->loadHTML( $html );
         return $dom;
+    }
+
+    public static function getResponseBody( $response ) {
+        return $response->body;
     }
     
     public static function getNodesByXpath( $dom, $query ) {
