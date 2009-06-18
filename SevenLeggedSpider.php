@@ -6,6 +6,14 @@
 require_once( 'Net/URL2.php' );
 
 class SevenLeggedSpider {
+    
+    public function getUrlAsDom() {
+        $spider   = $self->get( $url );
+        $body     = SevenLeggedSpider::getResponseBody( $response );
+        $character_encoding = SevenLeggedSpider::getCharacterEncoding( $response );
+        $dom      = SevenLeggedSpider::slurpHtml( $body, $character_encoding );
+        return $dom;         
+    }
 
     public static function slurpXml( $xml ) {
         $dom = new DomDocument();
