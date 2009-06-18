@@ -25,6 +25,19 @@ class SevenLeggedSpider {
         return $dom;
     }
 
+    public static function getCharacterEncoding( $response ) {
+        $content_type = $response->getContentType;
+        $parsed       = http_parse_params( $content_type );
+        
+        if ( !empty( $parsed->params[1]['charset'] ) ) {
+            return $parsed->params[1]['charset'];
+        }
+        else {
+            return 'ISO-8859-1';
+        }
+        
+    } 
+
     public static function getResponseBody( $response ) {
         return $response->body;
     }
