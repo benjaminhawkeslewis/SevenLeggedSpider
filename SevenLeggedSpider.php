@@ -26,7 +26,7 @@ class SevenLeggedSpider {
     }
 
     public static function getCharacterEncoding( $response ) {
-        $content_type = $response->getContentType();
+        $content_type = $response->headers['Content-Type'];
         $parsed       = http_parse_params( $content_type );
         
         if ( !empty( $parsed->params[1]['charset'] ) ) {
