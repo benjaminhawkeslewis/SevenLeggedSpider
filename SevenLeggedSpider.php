@@ -7,8 +7,8 @@ require_once( 'Net/URL2.php' );
 
 class SevenLeggedSpider {
     
-    public function getUrlAsDom() {
-        $spider   = $self->get( $url );
+    public function getUrlAsDom( $url ) {
+        $response = $this->get( $url );
         $body     = SevenLeggedSpider::getResponseBody( $response );
         $character_encoding = SevenLeggedSpider::getCharacterEncoding( $response );
         $dom      = SevenLeggedSpider::slurpHtml( $body, $character_encoding );
